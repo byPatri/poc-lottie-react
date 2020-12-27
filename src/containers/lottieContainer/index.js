@@ -1,24 +1,43 @@
 import { useState } from 'react'
 import LottieComponent from '../../components/lottieComponent'
-import Button from '@material-ui/core/Button';
+import { IconButton } from '@material-ui/core';
+import { Pause, PlayCircleFilled, Stop } from '@material-ui/icons';
 import './style.css'
 
 const LottieContainer = () => {
 const [isStopped, setStop] = useState(false)
-
-const handleStop = () => setStop(!isStopped)
+const [isPaused, setPaused] = useState(false)
 
   return (
     <div className='container'>
-      <LottieComponent isStopped={isStopped}/>
-      <Button 
-        variant="contained" 
-        className='stop-button'
-        color={isStopped? 'primary' : 'secondary'}
-        onClick={handleStop}
+      <LottieComponent 
+        isStopped={isStopped}
+        isPaused={isPaused}
+      />
+      <IconButton 
+        aria-label='play'
+        color={isStopped || isPaused ? 'primary' : 'default'}
+        className='button'
+        onClick={() => isStopped ? setStop(false) : setPaused(false)}
       >
-        {isStopped? 'Play' : 'Stop'}
-      </Button>
+        <PlayCircleFilled />
+      </IconButton>
+      <IconButton 
+        aria-label='pause'
+        color={isStopped || isPaused ? 'default' : 'primary'}
+        className='button'
+        onClick={() => setPaused(true)}
+      >
+        <Pause />
+      </IconButton>
+      <IconButton 
+        aria-label='stop'
+        color={isStopped || isPaused ? 'default' : 'secondary'}
+        className='button'
+        onClick={() => setStop(true)}
+      >
+        <Stop />
+      </IconButton>
     </div>
   );
 }
