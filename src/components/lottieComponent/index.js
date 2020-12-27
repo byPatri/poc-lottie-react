@@ -1,8 +1,8 @@
 import Lottie from "react-lottie";
-import animationData from "../../animations/42330-christmas-toggle.json";
+
 
 const LottieComponent = (props) => {
-    const { isStopped, isPaused } = props
+  const { isStopped, isPaused, animationData } = props
   const defaultOptions = {
     loop: true,
     autoplay: true,
