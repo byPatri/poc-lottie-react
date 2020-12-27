@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import LottieComponent from '../../components/lottieComponent'
 import { IconButton } from '@material-ui/core';
 import { Pause, PlayCircleFilled, Stop } from '@material-ui/icons';

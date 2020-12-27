@@ -1,7 +1,8 @@
+import React from 'react'
 import Lottie from "react-lottie";
 
 
-const LottieComponent = (props) => {
+const LottieComponent = (props: any) => {
   const { isStopped, isPaused, animationData } = props
   const defaultOptions = {
     loop: true,
