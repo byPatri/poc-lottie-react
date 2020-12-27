@@ -1,21 +1,24 @@
-import Lottie from "react-lottie";
-import animationData from "../../animations/42330-christmas-toggle.json";
+import { useState } from 'react'
+import LottieComponent from '../../components/lottieComponent'
+import Button from '@material-ui/core/Button';
+import './style.css'
 
 const LottieContainer = () => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  };
+const [isStopped, setStop] = useState(false)
+
+const handleStop = () => setStop(!isStopped)
 
   return (
-    <div>
-      <Lottie options={defaultOptions}
-              height={400}
-              width={400}/>
+    <div className='container'>
+      <LottieComponent isStopped={isStopped}/>
+      <Button 
+        variant="contained" 
+        className='stop-button'
+        color={isStopped? 'primary' : 'secondary'}
+        onClick={handleStop}
+      >
+        {isStopped? 'Play' : 'Stop'}
+      </Button>
     </div>
   );
 }

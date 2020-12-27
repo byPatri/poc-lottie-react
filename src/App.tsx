@@ -1,7 +1,5 @@
 import LottieContainer from './containers/lottieContainer'
 
-import './App.css';
-
 const  App = () => {
 
   return (
